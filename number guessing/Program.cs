@@ -32,7 +32,7 @@ namespace numberGuessing // Note: actual namespace depends on the project name.
             int computerNumber = computerChoice.Next(0, 100);
             for (int i = 0; i <= 7; i++)
             {
-                Console.WriteLine("Guess the Number! type a number from 1 to 100 and press enter!");
+                Console.WriteLine("Guess the Number! type a number from 1 to 100 and press enter! you have 7 attempts!");
                 int guessedNumber = Convert.ToInt32(Console.ReadLine());
                 if (guessedNumber == computerNumber)
                 {
