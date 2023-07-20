@@ -49,7 +49,12 @@ namespace numberGuessing // Note: actual namespace depends on the project name.
                 {
                     Console.WriteLine("too high");
                 }
+                if (i == 7 && guessedNumber != computerNumber)
+                {
+                    Console.WriteLine("you lose");
+                }
             }
+            
         }
     }
 }
