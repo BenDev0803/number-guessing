@@ -26,32 +26,38 @@ namespace numberGuessing // Note: actual namespace depends on the project name.
 {
     internal class Program
     {
+        public static readonly Random computerChoice = new Random();
         static void Main(string[] args)
         {
-            Random computerChoice = new Random();
-            int computerNumber = computerChoice.Next(0, 100);
-            for (int i = 0; i <= 7; i++)
+            const int rangeNumber = 101;
+            const int attempts = 7;
+            int computerNumber = computerChoice.Next(0, rangeNumber);
+            for (int i = attempts; i >= 1; i--)
             {
-                Console.WriteLine("Guess the Number! type a number from 1 to 100 and press enter! you have 7 attempts!");
+                Console.WriteLine($"Guess the Number! type a number from 1 to 100 and press enter! you have {i} attempts!");
                 int guessedNumber = Convert.ToInt32(Console.ReadLine());
+                
                 if (guessedNumber == computerNumber)
                 {
-                    Console.WriteLine(guessedNumber + " your number");
+                    Console.WriteLine($"{guessedNumber} your number");
                     Console.WriteLine("congratulations! the number is correct!");
                     break;
                 }
-                else if (guessedNumber <= computerNumber)
+                
+                if (guessedNumber <= computerNumber)
                 {
-                    Console.WriteLine(guessedNumber + " your number");
+                    Console.WriteLine($"{guessedNumber} your number");
                     Console.WriteLine(" too low!");
                 }
-                else
-                {
-                    Console.WriteLine("too high");
-                }
-                if (i == 7 && guessedNumber != computerNumber)
+                
+                if (i == 1 && guessedNumber != computerNumber)
                 {
                     Console.WriteLine("you lose");
+                }
+                
+                if ((guessedNumber >= computerNumber))
+                {
+                    Console.WriteLine("too high");
                 }
             }
             
