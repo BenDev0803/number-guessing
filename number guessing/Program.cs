@@ -43,13 +43,7 @@ namespace numberGuessing // Note: actual namespace depends on the project name.
                     Console.WriteLine("congratulations! the number is correct!");
                     break;
                 }
-                
-                if (guessedNumber <= computerNumber)
-                {
-                    Console.WriteLine($"{guessedNumber} your number");
-                    Console.WriteLine(" too low!");
-                }
-                
+
                 if (i == 1 && guessedNumber != computerNumber)
                 {
                     Console.WriteLine("you lose");
@@ -59,8 +53,18 @@ namespace numberGuessing // Note: actual namespace depends on the project name.
                 {
                     Console.WriteLine("too high");
                 }
+
+                if (guessedNumber <= computerNumber)
+                {
+                    Console.WriteLine($"{guessedNumber} your number");
+                    Console.WriteLine(" too low!");
+                }
+
+                if (((guessedNumber >= (computerNumber - 5)) && (guessedNumber <= (computerNumber + 5))))
+                {
+                    Console.WriteLine("you're close!");
+                }
             }
-            
         }
     }
 }
